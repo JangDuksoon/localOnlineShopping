@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html>
@@ -43,17 +44,22 @@
 		<tiles:insertAttribute name="header" />
 	</nav>
 
-	<!-- Begin page content -->
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3 col-md-2 sidebar">
-				<tiles:insertAttribute name="left" />
-			</div>
-			<div class="col-sm-9 col-sm-offset-3 col-md-offset-2 main">
-				<tiles:insertAttribute name="body" />
-			</div>
-		</div>
-	</div>
+	   <c:if test="${adminID == null}">
+   <a href="/admin/loginPage.do">관리자 로그인 해주세요.</a>
+   </c:if>
+   <c:if test="${adminID != null}">
+   <!-- Begin page content -->
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-sm-3 col-md-2 sidebar">
+            <tiles:insertAttribute name="left" />
+         </div>
+         <div class="col-sm-9 col-sm-offset-3 col-md-offset-2 main">
+            <tiles:insertAttribute name="body" />
+         </div>
+      </div>
+   </div>
+   </c:if>
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
