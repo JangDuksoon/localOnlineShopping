@@ -25,7 +25,7 @@
 			$("#search").val("<c:out value='${data.search}' />");
 
 			//:contains()는 특정 텍스트를 포함한 요소반환
-			if ($("#search").val() == 'o_serialnum'){
+			if ($("#search").val() == 'o_num'){
 				value = "#list tr td.goDetail";
 			}else if ($("#search").val() == 'id'){
 				value = "#list tr td.id";
@@ -226,7 +226,7 @@
 							<td>
 								<select id="search" name="search">
 									<option value="all">전체</option>
-									<option value="o_serialnum">주문번호</option>
+									<option value="o_num">일련번호</option>
 									<option value="id">회원ID</option>
 								</select> 
 								<input type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요."> 
@@ -234,7 +234,6 @@
 							</td>
 							<td align="right">한페이지에 
 								<select id="pageSize" name="pageSize">
-								
 									<option value="1">1줄</option>
 									<option value="3">3줄</option>
 									<option value="5">5줄</option>
